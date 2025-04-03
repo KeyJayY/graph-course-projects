@@ -35,6 +35,6 @@ def task3():
     draw_circle_graph(G2, 5, "random_graph_np")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     task1()
     task3()
