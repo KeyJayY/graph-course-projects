@@ -1,5 +1,6 @@
-def dijkstra(graph, start):
-    n = len(graph)
+def dijkstra(graph_matrix, start):
+    """Implementacja algorytmu Dijkstry na podstawie macierzy sąsiedztwa."""
+    n = len(graph_matrix)
     visited = set()
     distances = [float("inf")] * n
     distances[start] = 0
@@ -11,7 +12,7 @@ def dijkstra(graph, start):
         )
         visited.add(current)
 
-        for neighbor, weight in enumerate(graph[current]):
+        for neighbor, weight in enumerate(graph_matrix[current]):
             if weight > 0 and neighbor not in visited:
                 distances[neighbor] = min(
                     distances[neighbor], distances[current] + weight
@@ -21,6 +22,7 @@ def dijkstra(graph, start):
 
 
 def convert_adjecency_matrix_to_edges_list(graph_matrix):
+    """Konwertuje macierz sąsiedztwa na listę krawędzi."""
     edges = []
     n = len(graph_matrix)
 
@@ -32,6 +34,7 @@ def convert_adjecency_matrix_to_edges_list(graph_matrix):
 
 
 def convert_edges_list_to_adjecency_matrix(edges_list, n):
+    """Konwertuje listę krawędzi na macierz sąsiedztwa."""
     graph_matrix = [[0] * n for _ in range(n)]
     for i, j, weight in edges_list:
         graph_matrix[i][j] = graph_matrix[j][i] = weight
@@ -39,6 +42,7 @@ def convert_edges_list_to_adjecency_matrix(edges_list, n):
 
 
 def kruskal(graph_matrix):
+    """ "Implementacja algorytmu Kruskala na podstawie macierzy sąsiedztwa."""
     sets = [{node} for node in range(len(graph_matrix))]
     edges = convert_adjecency_matrix_to_edges_list(graph_matrix)
     edges.sort(key=lambda edge: edge[2])
@@ -84,8 +88,10 @@ def prim(graph_matrix):
 
 
 def graph_center(paths_matrix):
+    """Zwraca wierzchołek centrum grafu."""
     return min(range(len(paths_matrix)), key=lambda node: sum(paths_matrix[node]))
 
 
 def graph_center_minmax(paths_matrix):
+    """Zwraca wierzchołek centrum grafu minmax."""
     return min(range(len(paths_matrix)), key=lambda node: max(paths_matrix[node]))
