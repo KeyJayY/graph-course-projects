@@ -35,8 +35,8 @@ def adjacency_matrix_to_graph(matrix):
 
     for i in range(num_nodes):
         for j in range(i + 1, num_nodes):
-            if matrix[i][j] == 1:
-                G.add_edge(i + 1, j + 1)
+            if matrix[i][j] > 0:
+                G.add_edge(i + 1, j + 1, weight=matrix[i][j])
 
     return G
 
