@@ -1,6 +1,6 @@
 import random
 import networkx as nx
-import matplotlib.pyplot as plt
+from project_1.draw_graph import draw_circle_graph
 
 def generate_k_regular_graph_manual(n, k):
     if (n * k) % 2 != 0:
@@ -11,9 +11,7 @@ def generate_k_regular_graph_manual(n, k):
     G = nx.Graph()
     G.add_nodes_from(range(n))
 
-    # Lista stopni do spełnienia
     degree_remaining = {i: k for i in range(n)}
-
     nodes = list(G.nodes())
 
     while any(degree_remaining.values()):
@@ -30,7 +28,6 @@ def generate_k_regular_graph_manual(n, k):
                 if degree_remaining[v] == 0 or G.has_edge(u, v) or u == v:
                     continue
 
-                # Dodaj krawędź
                 G.add_edge(u, v)
                 degree_remaining[u] -= 1
                 degree_remaining[v] -= 1
@@ -41,23 +38,22 @@ def generate_k_regular_graph_manual(n, k):
                 break
 
         if not connected:
-            # Jeśli nie udało się połączyć, restartujemy (bo może być sytuacja bez wyjścia)
             return generate_k_regular_graph_manual(n, k)
 
     return G
 
-def visualize_graph(G):
-    pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True, node_color='lightgreen', node_size=800, font_size=12)
-    plt.title("Samodzielnie wygenerowany k-regularny graf")
-    plt.show()
+def visualize_graph(G, filename="k_regular_graph.png"):
+    draw_circle_graph(G, radius=10, name=filename, weights=False)
 
-if __name__ == '__main__':
+def main():
     n = 10  # liczba wierzchołków
     k = 4   # stopień każdego wierzchołka
 
     G = generate_k_regular_graph_manual(n, k)
-    visualize_graph(G)
+    visualize_graph(G, filename="k_regular_graph.png")
 
     print("Krawędzie grafu:")
     print(list(G.edges()))
+
+if __name__ == '__main__':
+    main()

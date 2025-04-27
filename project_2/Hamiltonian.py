@@ -1,5 +1,5 @@
 import networkx as nx
-import matplotlib.pyplot as plt
+from project_1.draw_graph import draw_circle_graph
 
 def hamiltonian_cycle_util(G, path, visited, start):
     if len(path) == len(G):
@@ -18,7 +18,6 @@ def hamiltonian_cycle_util(G, path, visited, start):
     return None
 
 def find_hamiltonian_cycle(G):
-    n = len(G.nodes)
     visited = {node: False for node in G.nodes}
 
     for start in G.nodes:
@@ -31,18 +30,15 @@ def find_hamiltonian_cycle(G):
 
     return None
 
-def visualize_graph(G):
-    pos = nx.spring_layout(G)
-    nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=800, font_size=12)
-    plt.title("Graf do sprawdzenia cyklu Hamiltona")
-    plt.show()
+def visualize_graph(G, filename="hamiltonian_graph.png"):
+    draw_circle_graph(G, radius=10, name=filename, weights=False)
 
-if __name__ == '__main__':
+def main():
     G = nx.Graph()
     edges = [(0, 1), (1, 2), (2, 3), (3, 0), (0, 2)]
     G.add_edges_from(edges)
 
-    visualize_graph(G)
+    visualize_graph(G, filename="hamiltonian_graph.png")
 
     cycle = find_hamiltonian_cycle(G)
     if cycle:
@@ -50,3 +46,6 @@ if __name__ == '__main__':
         print("Cykl Hamiltona:", cycle)
     else:
         print("Graf NIE jest hamiltonowski.")
+
+if __name__ == '__main__':
+    main()

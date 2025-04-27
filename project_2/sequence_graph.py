@@ -44,5 +44,5 @@ if __name__ == "__main__":
     if havel_hakimi(ciag):
         print("Ciąg jest graficzny.")
         graf = build_graph(ciag)
-        draw_circle_graph(G, radius=10, name="generated_graph.png", weights=False)
+        draw_circle_graph(graf, radius=10, name="generated_graph.png", weights=False)
         print("Ciąg NIE jest graficzny.")
