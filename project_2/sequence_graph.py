@@ -1,6 +1,7 @@
 import networkx as nx
 from project_1.draw_graph import draw_circle_graph
 
+
 def havel_hakimi(sequence):
     """
     Sprawdza, czy podany ciąg liczb jest ciągiem graficznym
@@ -50,12 +51,13 @@ def build_graph(sequence):
 
     return G
 
+
 def main():
     """
     Główna funkcja programu – sprawdza czy ciąg jest graficzny,
     buduje graf i zapisuje jego wizualizację.
     """
-    ciag = [4, 2, 4, 2, 1, 1]
+    ciag = [4, 2, 4, 2, 2, 1]
 
     if havel_hakimi(ciag):
         print("Ciąg jest graficzny.")
@@ -63,6 +65,7 @@ def main():
         draw_circle_graph(graf, radius=10, name="generated_graph.png", weights=False)
     else:
         print("Ciąg NIE jest graficzny.")
+
 
 if __name__ == "__main__":
     main()

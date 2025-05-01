@@ -1,10 +1,10 @@
 import random
 import numpy as np
-import random
 
 
 def generate_weighted_connected_graph_nl(n, l):
     """Generuje spójną losową macierz sąsiedztwa dla grafu G(n, l) z wagami krawędzi."""
+
     if l < n - 1:
         raise ValueError(
             "Liczba krawędzi musi być co najmniej n-1, aby graf był spójny."
@@ -12,6 +12,7 @@ def generate_weighted_connected_graph_nl(n, l):
 
     adj_matrix = np.zeros((n, n), dtype=int)
 
+    # Tworzenie losowego drzewa spinającego (n-1 krawędzi) — zapewnia spójność grafu
     nodes = list(range(n))
     random.shuffle(nodes)
 
@@ -20,11 +21,13 @@ def generate_weighted_connected_graph_nl(n, l):
         adj_matrix[nodes[i], nodes[i + 1]] = weight
         adj_matrix[nodes[i + 1], nodes[i]] = weight
 
+    # Zbieranie wszystkich możliwych dodatkowych krawędzi (które jeszcze nie istnieją)
     possible_edges = [
         (i, j) for i in range(n) for j in range(i + 1, n) if adj_matrix[i, j] == 0
     ]
     random.shuffle(possible_edges)
 
+    # Dodawanie losowych krawędzi, aż do osiągnięcia łącznej liczby l
     extra_edges = min(l - (n - 1), len(possible_edges))
     for i in range(extra_edges):
         weight = random.randint(1, 10)
