@@ -37,13 +37,13 @@ Projekt podzielony jest na zadania do uruchamiania kolejnych zadań służą nas
    python -m project_2.connected_graph
    ```
 4. ```bash
-    python -m project_2.random_euler
+   python -m project_2.random_euler
     ```
 5. ```bash
    python -m project_2.k_regular
    ```
 6. ```bash
-    python -m project_2.Hamiltonian
+   python -m project_2.Hamiltonian
     ```
 ### Project 3
 
