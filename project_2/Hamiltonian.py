@@ -23,8 +23,7 @@ def hamiltonian_cycle_util(G, path, visited, start):
     for neighbor in G.neighbors(path[-1]):
         if not visited[neighbor]:
             visited[neighbor] = True
-            result = hamiltonian_cycle_util(G, path + [neighbor], visited,
-                                            start)
+            result = hamiltonian_cycle_util(G, path + [neighbor], visited, start)
             if result:
                 return result
             visited[neighbor] = False
@@ -52,7 +51,6 @@ def find_hamiltonian_cycle(G):
     return None
 
 
-
 def main():
     """
     Główna funkcja programu, która generuje graf, rysuje go, a następnie znajduje cykl Hamiltona.
@@ -64,7 +62,6 @@ def main():
 
     draw_circle_graph(G, radius=10, name="hamiltonian_graph.png", weights=False)
 
-
     cycle = find_hamiltonian_cycle(G)
     if cycle:
         print("Graf jest hamiltonowski.")
@@ -73,5 +70,5 @@ def main():
         print("Graf NIE jest hamiltonowski.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

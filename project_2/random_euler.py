@@ -3,6 +3,7 @@ import networkx as nx
 from project_1.draw_graph import draw_circle_graph
 from project_2.sequence_graph import havel_hakimi, build_graph
 
+
 def generating_euler_graph(nodes_num):
     """
     Generuje graf Eulerowski na podstawie algorytmu Havel-Hakimi.
@@ -18,6 +19,7 @@ def generating_euler_graph(nodes_num):
             if nx.is_connected(G) and all(d % 2 == 0 for _, d in G.degree()):
                 print("Znaleziono sekwencję:", sequence)
                 return G
+
 
 def fleury_euler_graph(G):
     """
@@ -57,6 +59,7 @@ def fleury_euler_graph(G):
 
     return path
 
+
 def main():
     """
     Główna funkcja programu – generuje graf Eulerowski, rysuje go i znajduje cykl Eulera.
@@ -68,5 +71,6 @@ def main():
     path = fleury_euler_graph(G)
     print("Cykl Eulera:", path)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

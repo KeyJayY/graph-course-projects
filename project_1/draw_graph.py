@@ -7,9 +7,13 @@ import math
 matplotlib.use("TkAgg")
 
 
-def draw_circle_graph(G, radius, name, weights=False, colors="skyblue"):
+def draw_circle_graph(G, radius, name, directory=None, weights=False, colors="skyblue"):
     if not os.path.isdir("imgs"):
         os.mkdir("imgs")
+
+    if directory != None:
+        if not os.path.isdir(os.path.join("imgs", directory)):
+            os.mkdir(os.path.join("imgs", directory))
 
     pos = {}
     n = len(G.nodes())
@@ -43,5 +47,8 @@ def draw_circle_graph(G, radius, name, weights=False, colors="skyblue"):
             bbox=dict(facecolor="white", edgecolor="none", alpha=0.7),
         )
 
-    plt.savefig(os.path.join("imgs", name))
+    if directory != None:
+        plt.savefig(os.path.join(os.path.join("imgs", directory), name))
+    else:
+        plt.savefig(os.path.join("imgs", name))
     plt.clf()

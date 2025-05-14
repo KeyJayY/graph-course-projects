@@ -18,7 +18,7 @@ if __name__ == "__main__":
     graph = adjacency_matrix_to_graph(graph_matrix)
 
     # Rysowanie grafu w układzie kołowym i zapis do pliku PNG z wagami krawędzi
-    draw_circle_graph(graph, 5, "graph_project_3.png", weights=True)
+    draw_circle_graph(graph, 5, "graph_project_3.png", "project_3", weights=True)
 
     # Zadanie 2: Obliczenie najkrótszych ścieżek z wierzchołka 0 do pozostałych za pomocą algorytmu Dijkstry
     print("najkrótsza ścieżka z wierzchołka 0 do pozostałych wierzchołków:")
@@ -49,6 +49,7 @@ if __name__ == "__main__":
         adjacency_matrix_to_graph(mst_kruskal),
         5,
         "project_3_mst_kruskal.png",
+        "project_3",
         weights=True,
     )
 
@@ -57,5 +58,6 @@ if __name__ == "__main__":
         adjacency_matrix_to_graph(mst_prim),
         5,
         "project_3_mst_prim.png",
+        "project_3",
         weights=True,
     )

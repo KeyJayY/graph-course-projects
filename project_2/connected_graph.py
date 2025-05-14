@@ -53,7 +53,7 @@ def print_components(connected_graph_list):
 
     print("Składowe spójności:")
     for comp_num in sorted(components.keys()):
-        vertices = ' '.join(map(str, components[comp_num]))
+        vertices = " ".join(map(str, components[comp_num]))
         print(f"{comp_num}) {vertices}")
 
     # Określamy numer największej składowej
@@ -76,5 +76,5 @@ def main():
     draw_circle_graph(G, radius=10, name="components_graph.png", weights=False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

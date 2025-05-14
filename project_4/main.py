@@ -23,7 +23,7 @@ if __name__ == "__main__":
     digraph = convert_adjacency_matrix_to_digraph(digraph_adjecency_matrix)
 
     # Rysowanie grafu
-    draw_circle_graph(digraph, 10, "circle_digraph.png")
+    draw_circle_graph(digraph, 10, "circle_digraph.png", "project_4")
 
     ## Task 2
     kosaraju_result = kosaraju(digraph_adjecency_matrix)
@@ -31,7 +31,9 @@ if __name__ == "__main__":
     for i, comp in enumerate(kosaraju_result):
         print(f"Wierzchołek {i} należy do składowej {comp}")
 
-    draw_circle_graph(digraph, 10, "circle_digraph.png", colors=kosaraju_result)
+    draw_circle_graph(
+        digraph, 10, "circle_digraph_kosaraju.png", "project_4", colors=kosaraju_result
+    )
 
     ## Task 3
     digraph_adjecency_matrix = add_weights_to_digraph(
@@ -45,7 +47,9 @@ if __name__ == "__main__":
     )
 
     # Rysowanie grafu
-    draw_circle_graph(weighted_digraph, 10, "circle_weighted_digraph.png", weights=True)
+    draw_circle_graph(
+        weighted_digraph, 10, "circle_weighted_digraph.png", "project_4", weights=True
+    )
 
     test, bellman_ford_result = bellman_ford(digraph_adjecency_matrix, 0)
     print("Wynik algorytmu Bellmana-Forda:")

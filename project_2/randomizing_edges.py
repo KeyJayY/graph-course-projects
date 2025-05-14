@@ -2,6 +2,7 @@ import random
 from project_1.generator import generate_random_graph_nl
 from project_1.draw_graph import draw_circle_graph
 
+
 def generate_and_draw_graph(n_nodes, n_edges, name_before):
     """
     Generuje graf o zadanej liczbie wierzchołków (n_nodes) i krawędzi (n_edges),
@@ -15,6 +16,7 @@ def generate_and_draw_graph(n_nodes, n_edges, name_before):
     G = generate_random_graph_nl(n_nodes, n_edges)
     draw_circle_graph(G, radius=10, name=name_before)
     return G
+
 
 def randomize_edges(G, randomizations):
     """
@@ -54,12 +56,17 @@ def randomize_edges(G, randomizations):
             G.add_edge(b, c)
 
             successful_swaps += 1
-            print(f"[{successful_swaps}] Zamieniono: ({a}, {b}) + ({c}, {d}) → ({a}, {d}) + ({b}, {c})")
+            print(
+                f"[{successful_swaps}] Zamieniono: ({a}, {b}) + ({c}, {d}) → ({a}, {d}) + ({b}, {c})"
+            )
 
     if successful_swaps < randomizations:
-        print(f"Ostrzeżenie: Wykonano tylko {successful_swaps} z {randomizations} zamian.")
+        print(
+            f"Ostrzeżenie: Wykonano tylko {successful_swaps} z {randomizations} zamian."
+        )
 
     return G
+
 
 def main():
     """
@@ -73,5 +80,6 @@ def main():
     G = randomize_edges(G, randomizations)
     draw_circle_graph(G, radius=10, name="graph_after_randomization.png")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

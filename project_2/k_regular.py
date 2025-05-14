@@ -52,7 +52,6 @@ def generate_k_regular_graph_manual(n, k):
     return G
 
 
-
 def main():
     """
     Funkcja główna programu, która generuje graf k-regularny, rysuje go i wypisuje jego krawędzie.
@@ -68,5 +67,5 @@ def main():
     print(list(G.edges()))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
