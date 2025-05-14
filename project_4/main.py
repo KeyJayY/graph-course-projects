@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     test, bellman_ford_result = bellman_ford(digraph_adjecency_matrix, 0)
     print("Wynik algorytmu Bellmana-Forda:")
-    print(f"Test: {test}")
+    print(f"nie istnieje cykl ujemny z badanego wierzchołka: {test}")
     for i, dist in enumerate(bellman_ford_result):
         print(f"Najkrótsza odległość z wierzchołka 0 do wierzchołka {i} wynosi {dist}")
 
