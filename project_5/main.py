@@ -1,3 +1,5 @@
+https://colab.research.google.com/drive/1iempGSBd05t1LZq7fXP2llL_N-riq0qj?usp=sharing
+
 import random  # Do losowania liczby wierzchołków i przepustowości
 from collections import deque  # Do implementacji kolejki w BFS
 import networkx as nx  # Do rysowania grafów
