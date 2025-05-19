@@ -1,0 +1,29 @@
+ZADANIE 1: Graf przepływowy (wierzchołki i krawędzie):
+v0 -> v2 | capacity = 9
+v0 -> v1 | capacity = 8
+v0 -> v3 | capacity = 9
+v1 -> v3 | capacity = 9
+v1 -> v4 | capacity = 8
+v2 -> v4 | capacity = 7
+v2 -> v3 | capacity = 10
+v3 -> v7 | capacity = 6
+v3 -> v6 | capacity = 6
+v3 -> v5 | capacity = 7
+v4 -> v7 | capacity = 3
+v4 -> v5 | capacity = 7
+v4 -> v6 | capacity = 8
+v5 -> v8 | capacity = 2
+v5 -> v1 | capacity = 8
+v5 -> v2 | capacity = 9
+v5 -> v6 | capacity = 6
+v6 -> v8 | capacity = 4
+v6 -> v1 | capacity = 6
+v7 -> v8 | capacity = 5
+v7 -> v1 | capacity = 9
+
+ZADANIE 2: Ścieżki powiększające:
+Ścieżka 1: v0 -> v3 -> v7 -> v8 | przepływ = 5
+Ścieżka 2: v0 -> v3 -> v6 -> v8 | przepływ = 4
+Ścieżka 3: v0 -> v2 -> v4 -> v5 -> v8 | przepływ = 2
+
+Maksymalny przepływ z v0 do v8 wynosi: 11
